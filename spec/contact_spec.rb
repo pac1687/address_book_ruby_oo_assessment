@@ -46,4 +46,13 @@ describe Contact do
 		test_contact.save
 		expect(Contact.all).to eq [test_contact]
 	end
+
+	it 'outputs all contact names' do
+		Contact.clear_all
+		test_contact = Contact.new('John Doe')
+		test_contact1 = Contact.new('Harry Houdini')
+		test_contact.save
+		test_contact1.save
+		expect(Contact.all_names).to eq [test_contact.name, test_contact1.name]
+	end
 end
