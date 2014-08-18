@@ -30,8 +30,8 @@ describe Contact do
 
 	it 'adds an email address' do
 		test_contact = Contact.new('John Doe')
-		test_email = 'jdoe@gmail.com'
-		test_contact.add_email(test_email)
+		test_email = Email.new'jdoe@gmail.com'
+		test_contact.add_email(test_email.email)
 		expect(test_contact.email).to eq ['jdoe@gmail.com']
 	end
 
@@ -39,10 +39,10 @@ describe Contact do
 		test_contact = Contact.new('John Doe')
 		test_phone = Phone.new('555-123-4567')
 		test_address = Address.new('123 Main Street')
-		test_email = 'jdoe@gmail.com'
+		test_email = Email.new('jdoe@gmail.com')
 		test_contact.add_phone(test_phone.phone)
 		test_contact.add_address(test_address.address)
-		test_contact.add_email(test_email)
+		test_contact.add_email(test_email.email)
 		test_contact.save
 		expect(Contact.all).to eq [test_contact]
 	end
