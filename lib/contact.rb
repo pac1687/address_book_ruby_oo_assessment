@@ -4,6 +4,7 @@ class Contact
 		@name = name
 		@phone = []
 		@address = []
+		@email = []
 	end
 
 	def name
@@ -18,11 +19,19 @@ class Contact
 		@address
 	end
 
+	def email
+		@email
+	end
+
 	def add_phone(phone)
 		@phone << phone
 	end
 
 	def add_address(address)
 		@address << address
+	end
+
+	def add_email(email)
+		@email << email
 	end
 end

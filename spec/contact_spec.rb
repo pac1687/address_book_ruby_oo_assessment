@@ -22,8 +22,15 @@ describe Contact do
 
 	it 'adds an address' do
 		test_contact = Contact.new('John Doe')
-		test_address= '123 Main Street'
+		test_address = '123 Main Street'
 		test_contact.add_address(test_address)
 		expect(test_contact.address).to eq ['123 Main Street']
+	end
+
+	it 'adds an email address' do
+		test_contact = Contact.new('John Doe')
+		test_email = 'jdoe@gmail.com'
+		test_contact.add_email(test_email)
+		expect(test_contact.email).to eq ['jdoe@gmail.com']
 	end
 end
