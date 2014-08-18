@@ -55,4 +55,27 @@ describe Contact do
 		test_contact1.save
 		expect(Contact.all_names).to eq [test_contact.name, test_contact1.name]
 	end
+
+	it 'lets you choose a contact and view all of the information about it' do
+		Contact.clear_all
+		test_contact = Contact.new('John Doe')
+		test_phone = Phone.new('555-123-4567')
+		test_address = Address.new('123 Main Street')
+		test_email = Email.new('jdoe@gmail.com')
+		test_contact.add_phone(test_phone.phone)
+		test_contact.add_address(test_address.address)
+		test_contact.add_email(test_email.email)
+		test_contact.save
+		test_contact1 = Contact.new('Harry Houdini')
+		test_phone1 = Phone.new('999-555-3333')
+		test_address1 = Address.new('456 Grand Boulevard')
+		test_email1 = Email.new('hhoudini@gmail.com')
+		test_contact1.add_phone(test_phone1.phone)
+		test_contact1.add_address(test_address1.address)
+		test_contact1.add_email(test_email1.email)
+		test_contact1.save
+		user_choice = "John Doe"
+		results = Contact.view(user_choice)
+		expect(Contact.chosen_contact).to eq [test_contact]
+	end
 end

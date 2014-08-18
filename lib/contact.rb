@@ -1,6 +1,7 @@
 class Contact
 	@@all_contacts = []
 	@@all_names = []
+	@@chosen_contact = []
 
 	def initialize(name)
 		@name = name
@@ -53,5 +54,17 @@ class Contact
 	def Contact.clear_all
 		@@all_contacts = []
 		@@all_names = []
+	end
+
+	def Contact.view(user_choice)
+		@@all_contacts.each do |contact|
+			if user_choice == contact.name
+				@@chosen_contact << contact
+			end
+		end
+	end
+
+	def Contact.chosen_contact
+		@@chosen_contact
 	end
 end
