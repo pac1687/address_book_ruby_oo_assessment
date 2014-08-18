@@ -1,4 +1,5 @@
 class Contact
+	@@all_contacts = []
 
 	def initialize(name)
 		@name = name
@@ -33,5 +34,13 @@ class Contact
 
 	def add_email(email)
 		@email << email
+	end
+
+	def save
+		@@all_contacts << self
+	end
+
+	def Contact.all
+		@@all_contacts
 	end
 end
