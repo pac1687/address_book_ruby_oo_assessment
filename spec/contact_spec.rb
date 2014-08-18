@@ -1,5 +1,6 @@
 require 'rspec'
 require 'contact'
+require 'phone'
 require 'pry'
 
 describe Contact do
@@ -15,8 +16,8 @@ describe Contact do
 
 	it 'adds a phone number' do
 		test_contact = Contact.new('John Doe')
-		test_phone = '555-123-4567'
-		test_contact.add_phone(test_phone)
+		test_phone = Phone.new('555-123-4567')
+		test_contact.add_phone(test_phone.phone)
 		expect(test_contact.phone).to eq ['555-123-4567']
 	end
 
@@ -36,10 +37,10 @@ describe Contact do
 
 	it 'saves the contact' do
 		test_contact = Contact.new('John Doe')
-		test_phone = '555-123-4567'
+		test_phone = Phone.new('555-123-4567')
 		test_address = '123 Main Street'
 		test_email = 'jdoe@gmail.com'
-		test_contact.add_phone(test_phone)
+		test_contact.add_phone(test_phone.phone)
 		test_contact.add_address(test_address)
 		test_contact.add_email(test_email)
 		test_contact.save
