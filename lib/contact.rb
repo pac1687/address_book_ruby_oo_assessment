@@ -3,6 +3,7 @@ class Contact
 	def initialize(name)
 		@name = name
 		@phone = []
+		@address = []
 	end
 
 	def name
@@ -13,7 +14,15 @@ class Contact
 		@phone
 	end
 
+	def address
+		@address
+	end
+
 	def add_phone(phone)
 		@phone << phone
+	end
+
+	def add_address(address)
+		@address << address
 	end
 end

@@ -19,4 +19,11 @@ describe Contact do
 		test_contact.add_phone(test_phone)
 		expect(test_contact.phone).to eq ['555-123-4567']
 	end
+
+	it 'adds an address' do
+		test_contact = Contact.new('John Doe')
+		test_address= '123 Main Street'
+		test_contact.add_address(test_address)
+		expect(test_contact.address).to eq ['123 Main Street']
+	end
 end
